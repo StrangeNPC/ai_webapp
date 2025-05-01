@@ -1,0 +1,27 @@
+# General
+.DS_Store
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+# Python Virtual Environment
+backend/venv/
+backend/.env
+
+# Node Modules
+frontend/node_modules/
+frontend/build/
+frontend/.env*
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# AWS Elastic Beanstalk
+.elasticbeanstalk/
+G.txt
+logs.txt
+text.txt
+._combined_code_context.txt
+*Zone.Identifier
+*.Identifier
