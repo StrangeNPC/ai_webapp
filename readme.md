@@ -13,7 +13,7 @@ This repository is organized into the following main directories:
 *   **`backend_v2_wRDS_S3_WIP/`**: An enhanced version of the backend. This iteration adds:
     *   Extraction of Organizations and People entities.
     *   Integration with AWS S3 for storing uploaded files.
-    *   Work-in-progress (WIP) setup for potential integration with AWS RDS (PostgreSQL) for storing analysis results (Note: RDS integration is not fully completed due to lack of time).
+    *   Work-in-progress (WIP) setup for potential integration with AWS RDS (PostgreSQL) for storing analysis results (Note: RDS integration is not fully completed due to lack of time). 
 *   **`Backend_test/`**: Contains Python test scripts designed to test the API endpoints of both `backend_v1` and `backend_v2_wRDS_S3_WIP`.
 *   **`part_2/`**: Includes the architectural design document (`README.md`) and diagram (`Architecture.png`) outlining a scalable system capable of processing a high volume (10,000/hour) of news articles using AWS services like ECS, RabbitMQ, Bedrock, S3, RDS, Langfuse, and DeepEval.
 
