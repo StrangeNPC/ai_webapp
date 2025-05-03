@@ -5,7 +5,7 @@ import json
 
 # --- Configuration ---
 # Use http or https depending on your Beanstalk setup
-BASE_URL = "http://ai-news-analyzer-env.eba-ny77vj8c.us-east-1.elasticbeanstalk.com"
+BASE_URL = "http://ai-news-analyzer-env.example.us-east-1.elasticbeanstalk.com"
 ANALYZE_ENDPOINT = f"{BASE_URL}/analyze"
 SAMPLE_TEXT_FILE = "sample.txt"
 SAMPLE_DOCX_FILE = "sample.docx"
