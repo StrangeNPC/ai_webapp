@@ -286,7 +286,7 @@ function App() {
       </div>
        {/* Simple Footer Example */}
        <footer className="mt-12 text-center text-sm text-gray-500">
-            Powered by AI | Your Name/Company {new Date().getFullYear()}
+            Powered by AI | HTX {new Date().getFullYear()}
        </footer>
     </div>
   );

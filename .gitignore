@@ -22,6 +22,11 @@ frontend/yarn-error.log*
 G.txt
 logs.txt
 text.txt
-._combined_code_context.txt
+_combined_code_context.txt
 *Zone.Identifier
 *.Identifier
+*.py[cod]
+*$py.class
+
+Code.py
+test.txt
