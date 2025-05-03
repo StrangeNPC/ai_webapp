@@ -23,7 +23,7 @@ These tests are configured to run against the deployed backend API:
 - The backend API must be deployed and accessible at the `BASE_URL` specified in the scripts.
 - The following sample files must be present in the same directory as the test scripts:
     - `sample.txt`
-    - `sample.docx` (You'll need to create a docx version of `sample.txt`'s content)
+    - `sample.docx`
     - `sample_entities.txt`
 
 ### Installation and Setup:
