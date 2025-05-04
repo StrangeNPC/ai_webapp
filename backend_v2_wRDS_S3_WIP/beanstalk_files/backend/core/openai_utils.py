@@ -26,7 +26,6 @@ def get_openai_completion(prompt_text: str, model: str = settings.OPENAI_MODEL) 
                 {"role": "system", "content": "You are a helpful assistant specialized in analyzing news articles."},
                 {"role": "user", "content": prompt_text}
             ]
-            # Consider adding max_tokens, temperature etc. if needed
         )
         if response.choices and len(response.choices) > 0:
             message = response.choices[0].message
@@ -53,7 +52,7 @@ def get_openai_completion(prompt_text: str, model: str = settings.OPENAI_MODEL) 
         raise HTTPException(status_code=429, detail=f"OpenAI Rate Limit Exceeded: {e.body.get('message', 'Please try again later.') if e.body else 'Please try again later.'}")
     except openai.AuthenticationError as e:
         print(f"OpenAI Authentication Error: {e}")
-        # Do not expose sensitive details in the error message
+        # Sensitive details not revealed in error message!
         raise HTTPException(status_code=401, detail="OpenAI Authentication Error: Invalid API Key or credentials.")
     except Exception as e:
         print(f"An unexpected error occurred during OpenAI call: {e}")
@@ -78,7 +77,6 @@ def summarize_text(text: str) -> str:
     # Basic check if the result looks like an error message itself
     if summary.startswith("Error:") or summary.startswith("OpenAI returned"):
          print(f"Warning: Summary generation might have failed. Result: {summary}")
-         # Return a non-committal message or raise an error? For now, return the message.
          return "Could not generate summary due to an issue."
     return summary
 

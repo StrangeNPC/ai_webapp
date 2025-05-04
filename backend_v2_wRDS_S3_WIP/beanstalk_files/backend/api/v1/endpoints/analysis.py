@@ -1,5 +1,4 @@
-# backend/api/v1/endpoints/analysis.py
-import os # Ensure this is present
+import os
 from fastapi import APIRouter, File, UploadFile, Form, Depends, HTTPException, Body
 from sqlalchemy.orm import Session
 from typing import Optional, Annotated
@@ -35,7 +34,7 @@ async def analyze_article(
     article_text: str = ""
     original_filename: Optional[str] = None
     s3_key: Optional[str] = None
-    file_bytes: Optional[bytes] = None # Store file content for S3 if needed
+    file_bytes: Optional[bytes] = None 
 
     # --- Input Validation and Content Extraction ---
     if file_upload:
@@ -60,8 +59,6 @@ async def analyze_article(
             # Need the bytes for S3 later
             file_bytes = await file_upload.read() # Read once
             await file_upload.seek(0) # Reset cursor in case processor needs to read again
-            # Note: Refactor file_processor.read_uploaded_file to accept bytes?
-            # For now, re-reading via UploadFile object:
             article_text = await file_processor.read_uploaded_file(file_upload)
 
         except HTTPException as e:

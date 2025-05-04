@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from backend.core.config import settings # Import settings
+from backend.core.config import settings
 
 engine = None
 SessionLocal = None
@@ -11,7 +11,6 @@ if settings.SQLALCHEMY_DATABASE_URL:
     try:
         engine = create_engine(
             settings.SQLALCHEMY_DATABASE_URL,
-            # pool_pre_ping=True # Good practice for checking connections
         )
         SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
         print("Database engine and session created successfully.")

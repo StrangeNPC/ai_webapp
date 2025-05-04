@@ -33,8 +33,6 @@ class Settings:
     # Construct Database URL
     SQLALCHEMY_DATABASE_URL: Optional[str] = None 
     if all([DB_TYPE, DB_DRIVER, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME]):
-        # Example for PostgreSQL: "postgresql+psycopg2://user:password@host:port/dbname"
-        # Example for MySQL: "mysql+mysqlconnector://user:password@host:port/dbname"
         SQLALCHEMY_DATABASE_URL = f"{DB_TYPE}+{DB_DRIVER}://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
         print(f"Database URL configured: {DB_TYPE}://{DB_USERNAME}:***@{DB_HOST}:{DB_PORT}/{DB_NAME}")
     else:

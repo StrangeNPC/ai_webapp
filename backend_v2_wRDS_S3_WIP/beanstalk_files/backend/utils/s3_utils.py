@@ -15,7 +15,6 @@ s3_available = False
 if settings.AWS_REGION and settings.S3_BUCKET_NAME:
     try:
         if settings.AWS_ACCESS_KEY_ID and settings.AWS_SECRET_ACCESS_KEY:
-            # Use credentials from settings if provided (local dev)
             print(f"Initializing S3 client for region {settings.AWS_REGION} using credentials from settings.")
             s3_client = boto3.client(
                 's3',
@@ -24,7 +23,6 @@ if settings.AWS_REGION and settings.S3_BUCKET_NAME:
                 region_name=settings.AWS_REGION
             )
         else:
-            # Attempt to initialize using default credential chain (IAM role on EB/EC2)
             print(f"Initializing S3 client for region {settings.AWS_REGION} using default credential chain (IAM Role recommended).")
             s3_client = boto3.client('s3', region_name=settings.AWS_REGION)
 
@@ -75,8 +73,7 @@ def upload_file_to_s3(file_content: bytes, original_filename: str, content_type:
         error_code = e.response.get('Error', {}).get('Code')
         error_message = e.response.get('Error', {}).get('Message', str(e))
         print(f"AWS ClientError uploading to S3: {error_code} - {error_message}")
-        # Don't raise HTTPException here, let the caller endpoint handle failures gracefully
-        # Log the error and return None to indicate failure
+        #Log the error and return None to indicate failure
         return None
     except Exception as e:
         print(f"An unexpected error occurred during S3 upload: {e}")

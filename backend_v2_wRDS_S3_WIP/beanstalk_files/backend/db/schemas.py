@@ -15,7 +15,7 @@ class AnalysisRecordBase(BaseModel):
 class AnalysisRecordCreate(AnalysisRecordBase):
     pass
 
-# --- Schema for reading records from DB (includes ID, timestamps) ---
+# - Schema for reading records from DB (includes ID, timestamps) ---
 class AnalysisRecord(AnalysisRecordBase):
     id: int
     created_at: datetime
@@ -24,7 +24,7 @@ class AnalysisRecord(AnalysisRecordBase):
     class Config:
         from_attributes = True # Pydantic V2 way to allow ORM mode
 
-# --- Schema for the API response from /analyze endpoint ---
+# --Schema for the API response from /analyze endpoint ---
 # This might differ slightly if you don't return everything from the DB record
 class AnalysisResponse(BaseModel):
     filename: Optional[str] = None

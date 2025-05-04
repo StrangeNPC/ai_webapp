@@ -6,7 +6,7 @@ import time # For potential delays if needed
 
 # --- Configuration ---
 # Use http or https depending on your Beanstalk setup
-BASE_URL = "http://ai-news-analyzer-env.eba-ny77vj8c.us-east-1.elasticbeanstalk.com" # Make sure this is correct
+BASE_URL = "http://ai-news-analyzer-env.example.us-east-1.elasticbeanstalk.com" # Make sure this is correct
 ANALYZE_ENDPOINT = f"{BASE_URL}/analyze"
 SAMPLE_ENTITIES_FILE = "sample_entities.txt" # New sample file
 
@@ -121,9 +121,7 @@ def test_analyze_file_with_entities_and_s3():
 
     # Expected items from sample_entities.txt (adjust based on LLM results)
     expected_nationalities = ["French", "German", "American"] # Or France, Germany, USA etc.
-    # --- MODIFIED THIS LINE ---
     expected_orgs = ["United Nations", "Greenpeace", "World Wildlife Fund (WWF)", "Acme Corp", "Globex Corporation"]
-    # --- END MODIFICATION ---
     expected_people = ["President Macron", "Chancellor Scholz", "Dr. Evelyn Reed"] # Or Macron, Scholz, Evelyn Reed
 
     try:

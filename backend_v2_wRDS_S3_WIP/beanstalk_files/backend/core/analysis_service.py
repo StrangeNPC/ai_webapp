@@ -27,7 +27,7 @@ async def perform_analysis(text: str) -> dict:
     except Exception as e:
         print(f"Analysis Service Error (Summary): {e}")
         errors.append("Summary generation failed.")
-        analysis_results['summary'] = None # Or some error indicator
+        analysis_results['summary'] = None
 
     try:
         print("Analysis Service: Extracting nationalities...")

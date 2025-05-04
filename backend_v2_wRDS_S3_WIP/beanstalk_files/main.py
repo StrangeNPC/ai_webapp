@@ -23,12 +23,10 @@ create_db_tables()
 # --- FastAPI App Initialization ---
 app = FastAPI(
     title=settings.PROJECT_NAME,
-    # Update openapi_url if you remove the prefix, or keep it if you want docs at /api/v1/openapi.json
-    # If you want docs at /openapi.json, remove the prefix here too. Let's keep it for now.
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
 
-# --- CORS Middleware ---
+# ---CORS Middleware ---
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -38,7 +36,6 @@ app.add_middleware(
 )
 
 # --- Include API Router ---
-# REMOVED the prefix=settings.API_V1_STR
 app.include_router(api_router)
 
 # --- Root Endpoint ---
@@ -72,5 +69,4 @@ async def generic_exception_handler(request: Request, exc: Exception):
 if __name__ == "__main__":
     import uvicorn
     print("Starting Uvicorn server locally on http://0.0.0.0:8000")
-    # Make sure the reload points to the correct app instance if running locally
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
